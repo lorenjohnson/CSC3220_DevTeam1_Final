@@ -6,10 +6,7 @@
 
 static const QString DB_PATH = "../CSC3220_DevTeam1.sqlite";
 
-
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
@@ -26,7 +23,7 @@ void MainWindow::HandleNameSaveButtonPressed() {
     // TODO: Use existing DB connection
     DbManager db(DB_PATH);
     db.createUser(userName);
-    close();
+    this->close();
     QuotesIndexWindow *quotesIndexWindow = new QuotesIndexWindow();
     quotesIndexWindow->show();
 }
