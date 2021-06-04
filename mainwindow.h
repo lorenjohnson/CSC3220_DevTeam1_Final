@@ -17,5 +17,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+private slots:
+    void HandleNameSaveButtonPressed();
+
 };
 #endif // MAINWINDOW_H
