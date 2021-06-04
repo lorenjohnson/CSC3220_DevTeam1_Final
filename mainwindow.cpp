@@ -18,6 +18,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::HandleNameSaveButtonPressed() {
     qDebug() << "Save button clicked";
+    close();
     //    // Find out which button was pressed
     //    QPushButton *button = (QPushButton*)sender();
     //    // Get the value of the button pressed
