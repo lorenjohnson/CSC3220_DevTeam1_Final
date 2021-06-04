@@ -15,8 +15,6 @@ int main(int argc, char *argv[])
     {
         db.createUsersTable();
         db.createQuotesTable();
-        db.createUser("Loren Johnson");
-        db.createQuote("For score and seven years ago...", "Abraham Lincoln");
     }
     else
     {

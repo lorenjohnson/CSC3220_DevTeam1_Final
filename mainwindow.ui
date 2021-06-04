@@ -44,7 +44,7 @@
      <string>Save</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="userNameInput">
     <property name="geometry">
      <rect>
       <x>20</x>

@@ -1,6 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
+#include "quotesindexwindow.h"
+#include "dbmanager.h"
+
+static const QString DB_PATH = "../CSC3220_DevTeam1.sqlite";
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,20 +22,11 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::HandleNameSaveButtonPressed() {
-    qDebug() << "Save button clicked";
+    QString userName = ui->userNameInput->text();
+    // TODO: Use existing DB connection
+    DbManager db(DB_PATH);
+    db.createUser(userName);
     close();
-    //    // Find out which button was pressed
-    //    QPushButton *button = (QPushButton*)sender();
-    //    // Get the value of the button pressed
-    //    QString butVal = button->text();
-    //    // Get the current display value
-    //    QString displayVal = ui->Display->text();
-    //    // Process the button press (one number at a time)
-    //    if ((displayVal.toDouble() == 0.0 || displayVal.toDouble() == 0)) {
-    //        ui->Display->setText(butVal); // This is the first number pressed, just display it
-    //    } else {
-    //        QString newVal = displayVal + butVal;  // Concat the new number on to the old
-    //        double dblNewVal = newVal.toDouble();
-    //        ui->Display->setText(QString::number(dblNewVal, 'g', 16));
-    //    }
+    QuotesIndexWindow *quotesIndexWindow = new QuotesIndexWindow();
+    quotesIndexWindow->show();
 }
