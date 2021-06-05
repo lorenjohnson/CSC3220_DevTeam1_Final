@@ -69,6 +69,12 @@ public:
      */
     bool deleteQuote(const int quoteId);
 
+    /**
+     * @brief Return all quotes from db
+     */
+    QSqlQuery allQuotes();
+
+
 //    /**
 //     * @brief Check if person of name "name" exists in db
 //     * @param name - name of person to check.

@@ -150,6 +150,14 @@ bool DbManager::deleteQuote(const int quoteId)
     return success;
 }
 
+QSqlQuery DbManager::allQuotes() {
+    QSqlQuery queryQuotes;
+    queryQuotes.prepare("SELECT * FROM quotes");
+    queryQuotes.exec();
+
+    return queryQuotes;
+}
+
 //bool DbManager::addPerson(const QString& name)
 //{
 //    bool success = false;
