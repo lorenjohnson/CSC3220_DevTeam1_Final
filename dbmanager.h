@@ -27,6 +27,13 @@ public:
     DbManager(const QString& path);
 
     /**
+     * @brief Constructor
+     *
+     * Constructor gets existing connection to db
+     */
+    DbManager();
+
+    /**
      * @brief Destructor
      *
      * Close the db connection

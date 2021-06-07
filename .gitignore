@@ -55,3 +55,5 @@ compile_commands.json
 
 # Project
 *.sqlite
+.DS_Store
+data/*.sqlite

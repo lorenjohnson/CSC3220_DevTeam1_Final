@@ -19,6 +19,20 @@ DbManager::DbManager(const QString &path)
     }
 }
 
+DbManager::DbManager()
+{
+    m_db = QSqlDatabase::database();
+
+    if (!m_db.open())
+    {
+        qDebug() << "Error: connection with database fail";
+    }
+    else
+    {
+        qDebug() << "Database: connection ok";
+    }
+}
+
 DbManager::~DbManager()
 {
     if (m_db.isOpen())

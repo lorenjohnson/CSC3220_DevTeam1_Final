@@ -3,13 +3,13 @@
 #include <dbmanager.h>
 #include <QDebug>
 
-static const QString DB_PATH = "../CSC3220_DevTeam1.sqlite";
+static const QString DB_PATH = "./data/QuotesManager.sqlite";
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    DbManager db(DB_PATH);
+    DbManager db = DbManager(DB_PATH);
 
     if (db.isOpen())
     {

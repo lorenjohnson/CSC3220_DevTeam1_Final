@@ -4,8 +4,6 @@
 #include "quotesindexwindow.h"
 #include "dbmanager.h"
 
-static const QString DB_PATH = "../CSC3220_DevTeam1.sqlite";
-
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -20,8 +18,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::HandleNameSaveButtonPressed() {
     QString userName = ui->userNameInput->text();
-    // TODO: Use existing DB connection
-    DbManager db(DB_PATH);
+    DbManager db = DbManager();
     db.createUser(userName);
     this->close();
     QuotesIndexWindow *quotesIndexWindow = new QuotesIndexWindow();
