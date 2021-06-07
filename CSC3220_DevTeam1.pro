@@ -17,12 +17,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += dbmanager.cpp main.cpp \
     mainwindow.cpp \
+    quoteformwindow.cpp \
     quotesindexwindow.cpp
 HEADERS += dbmanager.h \
     mainwindow.h \
+    quoteformwindow.h \
     quotesindexwindow.h
 FORMS += \
     mainwindow.ui \
+    quoteformwindow.ui \
     quotesindexwindow.ui
 
 # Default rules for deployment.

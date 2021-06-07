@@ -17,6 +17,8 @@ public:
 
 private:
     Ui::QuotesIndexWindow *ui;
-};
 
+private slots:
+    void HandleNewQuoteButton();
+};
 #endif // QUOTESINDEXWINDOW_H

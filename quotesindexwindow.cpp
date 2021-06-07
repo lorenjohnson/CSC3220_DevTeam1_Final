@@ -1,5 +1,6 @@
 #include "quotesindexwindow.h"
 #include "ui_quotesindexwindow.h"
+#include "quoteformwindow.h"
 #include <QDebug>
 #include "dbmanager.h"
 #include <QSqlQuery>
@@ -11,6 +12,8 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    connect(ui->newQuoteButton, SIGNAL(released()), this, SLOT(HandleNewQuoteButton()));
+
     // TODO: Write a method to all of the below, then call it here or some appropriate window load event?
     DbManager db = DbManager();
 
@@ -21,6 +24,7 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
     // Get all quotes and display in table
     QSqlQuery results = db.allQuotes();
     ui->quotesIndexTableWidget->setColumnCount(2);
+
     int rowIndex = 0;
     while (results.next()) {
         ui->quotesIndexTableWidget->insertRow(rowIndex);
@@ -29,6 +33,7 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
         QString quoteString = results.value(1).toString();
         QTableWidgetItem *quoteItem = new QTableWidgetItem(quoteString);
         ui->quotesIndexTableWidget->setItem(rowIndex, 0, quoteItem);
+        ui->quotesIndexTableWidget->resizeRowsToContents();
 
         // Quotee
         QString quoteeString = results.value(2).toString();
@@ -41,7 +46,7 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
 
     // TODO: Get the column height to resize to accomodate content size
     //       possible help: https://stackoverflow.com/a/25124763
-    //
+    // ui->quotesIndexTableWidget->horizontalHeader()->setResizeMode(8, QHeaderView::Fixed);
     //ui->quotesIndexTableWidget->setVisible(false);
     //QRect vporig = ui->quotesIndexTableWidget->viewport()->geometry();
     //QRect vpnew = vporig;
@@ -56,4 +61,11 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
 QuotesIndexWindow::~QuotesIndexWindow()
 {
     delete ui;
+}
+
+
+void QuotesIndexWindow::HandleNewQuoteButton() {
+    this->close();
+    QuoteFormWindow *quoteFormWindow = new QuoteFormWindow();
+    quoteFormWindow->show();
 }
