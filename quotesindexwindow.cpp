@@ -11,10 +11,15 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // TODO: Write a method to call to do this, call it here
+    // TODO: Write a method to all of the below, then call it here or some appropriate window load event?
     DbManager db = DbManager();
-    QSqlQuery results = db.allQuotes();
 
+    // TODO: Create text display on window to show user name
+    QString userName = db.userName();
+    qDebug() << userName;
+
+    // Get all quotes and display in table
+    QSqlQuery results = db.allQuotes();
     ui->quotesIndexTableWidget->setColumnCount(2);
     int rowIndex = 0;
     while (results.next()) {

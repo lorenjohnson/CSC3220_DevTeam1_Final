@@ -164,6 +164,17 @@ bool DbManager::deleteQuote(const int quoteId)
     return success;
 }
 
+QString DbManager::userName() {
+    QSqlQuery queryUser;
+    queryUser.prepare("SELECT * FROM users");
+    queryUser.exec();
+    queryUser.next();
+
+    QString userName = queryUser.value(1).toString();
+
+    return userName;
+}
+
 QSqlQuery DbManager::allQuotes() {
     QSqlQuery queryQuotes;
     queryQuotes.prepare("SELECT * FROM quotes");

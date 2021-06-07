@@ -77,6 +77,11 @@ public:
     bool deleteQuote(const int quoteId);
 
     /**
+     * @brief Returns user's name if a user has already been created, empty if it doesn't
+     */
+    QString userName();
+
+    /**
      * @brief Return all quotes from db
      */
     QSqlQuery allQuotes();
