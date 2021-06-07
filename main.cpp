@@ -3,7 +3,7 @@
 #include <dbmanager.h>
 #include <QDebug>
 
-static const QString DB_PATH = "./data/QuotesManager.sqlite";
+static const QString DB_PATH = "QuotesManager.sqlite";
 
 int main(int argc, char *argv[])
 {
