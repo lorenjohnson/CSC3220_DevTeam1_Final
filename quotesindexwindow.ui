@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>657</width>
+    <width>737</width>
     <height>626</height>
    </rect>
   </property>
@@ -22,141 +22,141 @@
   <property name="windowTitle">
    <string>Quotes</string>
   </property>
-  <widget class="QTableWidget" name="quotesIndexTableWidget">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>80</y>
-     <width>601</width>
-     <height>531</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans Serif</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="focusPolicy">
-    <enum>Qt::NoFocus</enum>
-   </property>
-   <property name="contextMenuPolicy">
-    <enum>Qt::NoContextMenu</enum>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="lineWidth">
-    <number>0</number>
-   </property>
-   <property name="sizeAdjustPolicy">
-    <enum>QAbstractScrollArea::AdjustToContents</enum>
-   </property>
-   <property name="editTriggers">
-    <set>QAbstractItemView::NoEditTriggers</set>
-   </property>
-   <property name="tabKeyNavigation">
-    <bool>false</bool>
-   </property>
-   <property name="showDropIndicator" stdset="0">
-    <bool>false</bool>
-   </property>
-   <property name="dragDropOverwriteMode">
-    <bool>false</bool>
-   </property>
-   <property name="selectionMode">
-    <enum>QAbstractItemView::NoSelection</enum>
-   </property>
-   <property name="textElideMode">
-    <enum>Qt::ElideRight</enum>
-   </property>
-   <property name="showGrid">
-    <bool>false</bool>
-   </property>
-   <property name="gridStyle">
-    <enum>Qt::NoPen</enum>
-   </property>
-   <property name="wordWrap">
-    <bool>true</bool>
-   </property>
-   <property name="cornerButtonEnabled">
-    <bool>false</bool>
-   </property>
-   <property name="columnCount">
-    <number>2</number>
-   </property>
-   <attribute name="horizontalHeaderVisible">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="horizontalHeaderHighlightSections">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="verticalHeaderVisible">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="verticalHeaderHighlightSections">
-    <bool>false</bool>
-   </attribute>
-   <column>
-    <property name="text">
-     <string>Quote</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Quotee</string>
-    </property>
-   </column>
-  </widget>
-  <widget class="QPushButton" name="newQuoteButton">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>10</y>
-     <width>151</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>16</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>New Quote</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="welcomeLabel">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>461</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>18</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="welcomeLabel">
+     <property name="font">
+      <font>
+       <family>Sans</family>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="newQuoteButton">
+     <property name="font">
+      <font>
+       <family>Sans</family>
+       <pointsize>16</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>New Quote</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QTableWidget" name="quotesIndexTableWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sans Serif</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::NoContextMenu</enum>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="tabKeyNavigation">
+      <bool>false</bool>
+     </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="dragDropOverwriteMode">
+      <bool>false</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::NoSelection</enum>
+     </property>
+     <property name="textElideMode">
+      <enum>Qt::ElideRight</enum>
+     </property>
+     <property name="showGrid">
+      <bool>false</bool>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::NoPen</enum>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="cornerButtonEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="columnCount">
+      <number>2</number>
+     </property>
+     <attribute name="horizontalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderHighlightSections">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderHighlightSections">
+      <bool>false</bool>
+     </attribute>
+     <row>
+      <property name="text">
+       <string>Quote</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Quotee</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Quote</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Quotee</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignLeading|AlignVCenter</set>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

@@ -22,7 +22,7 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
 
     // Get all quotes and display in table
     QSqlQuery results = db.allQuotes();
-    ui->quotesIndexTableWidget->setColumnCount(2);
+    ui->quotesIndexTableWidget->setRowCount(10);
 
     int rowIndex = 0;
     while (results.next()) {
@@ -30,15 +30,19 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
 
         // Quote
         QString quoteString = results.value(1).toString();
+        QTableWidgetItem *quoteIndicator = new QTableWidgetItem("Quote: ");
         QTableWidgetItem *quoteItem = new QTableWidgetItem(quoteString);
-        ui->quotesIndexTableWidget->setItem(rowIndex, 0, quoteItem);
+        ui->quotesIndexTableWidget->setItem(rowIndex, 0, quoteIndicator);
+        ui->quotesIndexTableWidget->setItem(rowIndex, 1, quoteItem);
         ui->quotesIndexTableWidget->resizeRowsToContents();
+        rowIndex++;
 
         // Quotee
         QString quoteeString = results.value(2).toString();
+        QTableWidgetItem *authorIndicator = new QTableWidgetItem("Quotee: ");
         QTableWidgetItem *quoteeItem = new QTableWidgetItem(quoteeString);
+        ui->quotesIndexTableWidget->setItem(rowIndex, 0, authorIndicator);
         ui->quotesIndexTableWidget->setItem(rowIndex, 1, quoteeItem);
-
         rowIndex++;
     }
     ui->quotesIndexTableWidget->resizeColumnsToContents();
