@@ -17,9 +17,8 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
     // TODO: Write a method to all of the below, then call it here or some appropriate window load event?
     DbManager db = DbManager();
 
-    // TODO: Create text display on window to show user name
     QString userName = db.userName();
-    qDebug() << userName;
+    ui->welcomeLabel->setText("Welcome " + userName);
 
     // Get all quotes and display in table
     QSqlQuery results = db.allQuotes();

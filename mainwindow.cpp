@@ -17,10 +17,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::HandleNameSaveButtonPressed() {
     QString userName = ui->userNameInput->text();
-    DbManager db = DbManager();
-    // TODO: Make sure isn't empty (if it is do nothing)
-    db.createUser(userName);
-    this->close();
-    QuotesIndexWindow *quotesIndexWindow = new QuotesIndexWindow();
-    quotesIndexWindow->show();
+    if (!userName.isEmpty()) {
+        DbManager db = DbManager();
+        db.createUser(userName);
+        this->close();
+        QuotesIndexWindow *quotesIndexWindow = new QuotesIndexWindow();
+        quotesIndexWindow->show();
+    }
 }
