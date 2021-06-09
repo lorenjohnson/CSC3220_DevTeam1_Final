@@ -177,7 +177,7 @@ QString DbManager::userName() {
 
 QSqlQuery DbManager::allQuotes() {
     QSqlQuery queryQuotes;
-    queryQuotes.prepare("SELECT * FROM quotes");
+    queryQuotes.prepare("SELECT * FROM quotes ORDER BY id DESC");
     queryQuotes.exec();
 
     return queryQuotes;

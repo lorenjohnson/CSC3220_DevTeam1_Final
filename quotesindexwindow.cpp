@@ -23,17 +23,18 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
     // Get all quotes and display in table
     QSqlQuery results = db.allQuotes();
     ui->quotesIndexTableWidget->setRowCount(10);
-    ui->quotesIndexTableWidget->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Expanding);
+    ui->quotesIndexTableWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    ui->quotesIndexTableWidget->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
 
     int rowIndex = 0;
     while (results.next()) {
         ui->quotesIndexTableWidget->insertRow(rowIndex);
 
         // Quote
-        QString quoteString = results.value(1).toString();
+        QString quoteString = "\"" + results.value(1).toString() + "\"";
         QTableWidgetItem *quoteItem = new QTableWidgetItem(quoteString);
         quoteItem->setTextAlignment(Qt::AlignTop);
-        quoteItem->setSizeHint(QSize(500,200));
+        quoteItem->setSizeHint(QSize(500,100));
         quoteItem->setFont(QFont("Times", 16, QFont::Normal));
         ui->quotesIndexTableWidget->setItem(rowIndex, 0, quoteItem);
 
@@ -41,7 +42,7 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
         QString quoteeString = results.value(2).toString();
         QTableWidgetItem *quoteeItem = new QTableWidgetItem(quoteeString);
         quoteeItem->setFont(QFont("Times", 16, QFont::Bold));
-        quoteeItem->setTextAlignment(Qt::AlignTop);
+        quoteeItem->setTextAlignment(Qt::AlignTop | Qt::AlignRight);
 //        quoteeItem->setSizeHint(QSize(200,100));
         ui->quotesIndexTableWidget->setItem(rowIndex, 1, quoteeItem);
         rowIndex++;
