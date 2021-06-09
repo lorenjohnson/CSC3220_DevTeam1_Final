@@ -23,6 +23,7 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
     // Get all quotes and display in table
     QSqlQuery results = db.allQuotes();
     ui->quotesIndexTableWidget->setRowCount(10);
+    ui->quotesIndexTableWidget->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Expanding);
 
     int rowIndex = 0;
     while (results.next()) {
@@ -30,21 +31,22 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
 
         // Quote
         QString quoteString = results.value(1).toString();
-        QTableWidgetItem *quoteIndicator = new QTableWidgetItem("Quote: ");
         QTableWidgetItem *quoteItem = new QTableWidgetItem(quoteString);
-        ui->quotesIndexTableWidget->setItem(rowIndex, 0, quoteIndicator);
-        ui->quotesIndexTableWidget->setItem(rowIndex, 1, quoteItem);
-        ui->quotesIndexTableWidget->resizeRowsToContents();
-        rowIndex++;
+        quoteItem->setTextAlignment(Qt::AlignTop);
+        quoteItem->setSizeHint(QSize(500,200));
+        quoteItem->setFont(QFont("Times", 16, QFont::Normal));
+        ui->quotesIndexTableWidget->setItem(rowIndex, 0, quoteItem);
 
         // Quotee
         QString quoteeString = results.value(2).toString();
-        QTableWidgetItem *authorIndicator = new QTableWidgetItem("Quotee: ");
         QTableWidgetItem *quoteeItem = new QTableWidgetItem(quoteeString);
-        ui->quotesIndexTableWidget->setItem(rowIndex, 0, authorIndicator);
+        quoteeItem->setFont(QFont("Times", 16, QFont::Bold));
+        quoteeItem->setTextAlignment(Qt::AlignTop);
+//        quoteeItem->setSizeHint(QSize(200,100));
         ui->quotesIndexTableWidget->setItem(rowIndex, 1, quoteeItem);
         rowIndex++;
     }
+    ui->quotesIndexTableWidget->resizeRowsToContents();
     ui->quotesIndexTableWidget->resizeColumnsToContents();
 
     // TODO: Get the column height to resize to accomodate content size

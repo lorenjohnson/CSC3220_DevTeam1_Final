@@ -65,7 +65,7 @@
      <property name="font">
       <font>
        <family>Sans Serif</family>
-       <pointsize>12</pointsize>
+       <pointsize>14</pointsize>
       </font>
      </property>
      <property name="focusPolicy">
@@ -73,6 +73,20 @@
      </property>
      <property name="contextMenuPolicy">
       <enum>Qt::NoContextMenu</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget {
+    padding: 10px;
+	background: transparent;
+}
+
+
+QTableWidget{
+    padding: 20px;
+    font-size: 14pt;
+}
+
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -145,13 +159,30 @@
       <property name="text">
        <string>Quote</string>
       </property>
+      <property name="font">
+       <font>
+        <family>Sans Serif</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="textAlignment">
+       <set>AlignLeading|AlignTop</set>
+      </property>
      </column>
      <column>
       <property name="text">
        <string>Quotee</string>
       </property>
+      <property name="font">
+       <font>
+        <family>Sans Serif</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="textAlignment">
-       <set>AlignLeading|AlignVCenter</set>
+       <set>AlignLeading|AlignTop</set>
       </property>
      </column>
     </widget>
