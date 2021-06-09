@@ -39,7 +39,7 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
         ui->quotesIndexTableWidget->setItem(rowIndex, 0, quoteItem);
 
         // Quotee
-        QString quoteeString = results.value(2).toString();
+        QString quoteeString = "- " + results.value(2).toString();
         QTableWidgetItem *quoteeItem = new QTableWidgetItem(quoteeString);
         quoteeItem->setFont(QFont("Times", 16, QFont::Bold));
         quoteeItem->setTextAlignment(Qt::AlignTop | Qt::AlignRight);
