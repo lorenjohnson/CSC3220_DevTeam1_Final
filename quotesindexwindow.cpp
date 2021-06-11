@@ -43,25 +43,12 @@ QuotesIndexWindow::QuotesIndexWindow(QWidget *parent) :
         QTableWidgetItem *quoteeItem = new QTableWidgetItem(quoteeString);
         quoteeItem->setFont(QFont("Times", 16, QFont::Bold));
         quoteeItem->setTextAlignment(Qt::AlignTop | Qt::AlignRight);
-//        quoteeItem->setSizeHint(QSize(200,100));
         ui->quotesIndexTableWidget->setItem(rowIndex, 1, quoteeItem);
         rowIndex++;
     }
     ui->quotesIndexTableWidget->resizeRowsToContents();
     ui->quotesIndexTableWidget->resizeColumnsToContents();
 
-    // TODO: Get the column height to resize to accomodate content size
-    //       possible help: https://stackoverflow.com/a/25124763
-    // ui->quotesIndexTableWidget->horizontalHeader()->setResizeMode(8, QHeaderView::Fixed);
-    //ui->quotesIndexTableWidget->setVisible(false);
-    //QRect vporig = ui->quotesIndexTableWidget->viewport()->geometry();
-    //QRect vpnew = vporig;
-    //vpnew.setWidth(std::numeric_limits<int>::max());
-    //ui->quotesIndexTableWidget->viewport()->setGeometry(vpnew);
-    //ui->quotesIndexTableWidget->resizeColumnsToContents();
-    //ui->quotesIndexTableWidget->resizeRowsToContents();
-    //ui->quotesIndexTableWidget->viewport()->setGeometry(vporig);
-    //ui->quotesIndexTableWidget->setVisible(true);
 }
 
 QuotesIndexWindow::~QuotesIndexWindow()
